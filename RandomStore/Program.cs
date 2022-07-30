@@ -61,22 +61,17 @@ namespace RandomStore
 
         }
 
-        public void BuyItem(ref decimal wallet)
+        public virtual void BuyItem(ref decimal wallet)
         {
-            decimal trueprice = price;
-            if (this is ToothBrush || this is PaperTowels)
-            {
-                trueprice *= (decimal)0.7;
-            }
-            if (wallet >= trueprice)
+            if (wallet >= price)
             {
                 Console.WriteLine("Thank you for buying one {0}!", name);
-                Console.WriteLine("Total: " + trueprice);
-                wallet -= trueprice;
+                Console.WriteLine("Total: " + price);
+                wallet -= price;
             }
             else
             {
-                Console.WriteLine("Sorry, but you're {0} short", trueprice - wallet);
+                Console.WriteLine("Sorry, but you're {0} short", price - wallet);
             }
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("Money left: " + wallet);
@@ -113,6 +108,17 @@ namespace RandomStore
             price = 10;
         }
 
+        public override void BuyItem(ref decimal wallet)
+        {
+            decimal trueprice = price;
+
+            price *= (decimal)0.7;
+
+            base.BuyItem(ref wallet);
+
+            price = trueprice;
+        }
+
         public override void ShowPrice()
         {
             base.ShowPrice();
@@ -130,6 +136,17 @@ namespace RandomStore
         {
             name = "Paper Towels";
             price = 30;
+        }
+
+        public override void BuyItem(ref decimal wallet)
+        {
+            decimal trueprice = price;
+
+            price *= (decimal)0.7;
+
+            base.BuyItem(ref wallet);
+
+            price = trueprice;
         }
     }
 
