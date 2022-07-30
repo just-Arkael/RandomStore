@@ -32,7 +32,6 @@ namespace RandomStore
     {
         public string name;
         public decimal price;
-        static Product sale;
 
 
         public virtual void ShowPrice()
