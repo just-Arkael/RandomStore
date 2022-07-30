@@ -16,10 +16,19 @@ namespace RandomStore
             products[2] = new ToothPaste();
             products[3] = new ToothBrush(50);
             products[4] = new Soap("Lavender");
+            Console.WriteLine("How much did we save up?");
+            decimal wallet = 0;
+            decimal.TryParse(Console.ReadLine(), out wallet);
 
             foreach (Product p in products)
             {
                 p.ShowPrice();
+                Console.WriteLine("Buy? y/n");
+                if (Console.ReadLine() == "y")
+                {
+                    p.BuyItem(ref wallet);
+                }
+                Console.WriteLine();
             }
 
             Console.ReadKey();
@@ -50,6 +59,28 @@ namespace RandomStore
                 Console.WriteLine(price);
             }
 
+        }
+
+        public void BuyItem(ref decimal wallet)
+        {
+            decimal trueprice = price;
+            if (this is ToothBrush || this is PaperTowels)
+            {
+                trueprice *= (decimal)0.7;
+            }
+            if (wallet >= trueprice)
+            {
+                Console.WriteLine("Thank you for buying one {0}!", name);
+                Console.WriteLine("Total: " + trueprice);
+                wallet -= trueprice;
+            }
+            else
+            {
+                Console.WriteLine("Sorry, but you're {0} short", trueprice - wallet);
+            }
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("Money left: " + wallet);
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 
@@ -118,7 +149,7 @@ namespace RandomStore
         }
         void Smell()
         {
-            Console.WriteLine(smell + " smell");
+            Console.WriteLine(smell + " scented");
         }
     }
 }
