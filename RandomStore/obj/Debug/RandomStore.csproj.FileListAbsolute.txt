@@ -1,0 +1,8 @@
+C:\Users\Arkael\source\repos\RandomStore\RandomStore\bin\Debug\RandomStore.exe.config
+C:\Users\Arkael\source\repos\RandomStore\RandomStore\bin\Debug\RandomStore.exe
+C:\Users\Arkael\source\repos\RandomStore\RandomStore\bin\Debug\RandomStore.pdb
+C:\Users\Arkael\source\repos\RandomStore\RandomStore\obj\Debug\RandomStore.csproj.AssemblyReference.cache
+C:\Users\Arkael\source\repos\RandomStore\RandomStore\obj\Debug\RandomStore.csproj.SuggestedBindingRedirects.cache
+C:\Users\Arkael\source\repos\RandomStore\RandomStore\obj\Debug\RandomStore.csproj.CoreCompileInputs.cache
+C:\Users\Arkael\source\repos\RandomStore\RandomStore\obj\Debug\RandomStore.exe
+C:\Users\Arkael\source\repos\RandomStore\RandomStore\obj\Debug\RandomStore.pdb
